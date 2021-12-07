@@ -110,7 +110,7 @@ FILE *fmemopen(void *restrict buf, size_t size, const char *restrict mode)
 	f->c.buf = buf;
 	f->c.size = size;
 	f->c.mode = *mode;
-	
+
 	if (!plus) f->f.flags = (*mode == 'r') ? F_NOWR : F_NORD;
 	if (*mode == 'r') f->c.len = size;
 	else if (*mode == 'a') f->c.len = f->c.pos = strnlen(buf, size);
@@ -121,7 +121,7 @@ FILE *fmemopen(void *restrict buf, size_t size, const char *restrict mode)
 	f->f.seek = mseek;
 	f->f.close = mclose;
 
-	if (!libc.threaded) f->f.lock = -1;
+   if (__libc_single_threaded != 0) f->f.lock = -1;
 
 	return __ofl_add(&f->f);
 }

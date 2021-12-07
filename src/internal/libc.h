@@ -36,6 +36,7 @@ struct __libc {
 
 extern hidden struct __libc __libc;
 #define libc __libc
+extern char __libc_single_threaded;
 
 hidden void __init_libc(char **, char *);
 hidden void __init_tls(size_t *);

@@ -33,7 +33,7 @@ int __libc_sigaction(int sig, const struct sigaction *restrict sa, struct sigact
 			 * receive an illegal sigset_t (with them
 			 * blocked) as part of the ucontext_t passed
 			 * to the signal handler. */
-			if (!libc.threaded && !unmask_done) {
+			if (__libc_single_threaded != 0 && !unmask_done) {
 				__syscall(SYS_rt_sigprocmask, SIG_UNBLOCK,
 					SIGPT_SET, 0, _NSIG/8);
 				unmask_done = 1;

@@ -1,6 +1,7 @@
 #include "libc.h"
 
 struct __libc __libc;
+char __libc_single_threaded = 1;
 
 size_t __hwcap;
 char *__progname=0, *__progname_full=0;

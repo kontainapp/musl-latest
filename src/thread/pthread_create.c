@@ -244,7 +244,7 @@ int __pthread_create(pthread_t *restrict res, const pthread_attr_t *restrict att
 
 	if (!libc.can_do_threads) return ENOSYS;
 	self = __pthread_self();
-	if (!libc.threaded) {
+	if (__libc_single_threaded != 0) {
 		for (FILE *f=*__ofl_lock(); f; f=f->next)
 			init_file_lock(f);
 		__ofl_unlock();
@@ -254,7 +254,7 @@ int __pthread_create(pthread_t *restrict res, const pthread_attr_t *restrict att
 		__syscall(SYS_rt_sigprocmask, SIG_UNBLOCK, SIGPT_SET, 0, _NSIG/8);
 		self->tsd = (void **)__pthread_tsd_main;
 		__membarrier_init();
-		libc.threaded = 1;
+      __libc_single_threaded = 0;
 	}
 	if (attrp && !c11) attr = *attrp;
 

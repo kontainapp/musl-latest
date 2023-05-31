@@ -9,3 +9,8 @@ int pthread_attr_init(pthread_attr_t *a)
 	__release_ptc();
 	return 0;
 }
+
+int pthread_attr_setaffinity_np(pthread_attr_t* attr, size_t cpusetsize, const void* cpuset)
+{
+   return 0;
+}

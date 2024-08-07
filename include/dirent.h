@@ -57,15 +57,19 @@ int versionsort(const struct dirent **, const struct dirent **);
 #endif
 
 #if defined(_LARGEFILE64_SOURCE)
+#if 0
 #define dirent64 dirent
 #define readdir64 readdir
 #define readdir64_r readdir_r
 #define scandir64 scandir
 #define alphasort64 alphasort
 #define versionsort64 versionsort
+#endif
 #define off64_t off_t
 #define ino64_t ino_t
+#if 0
 #define getdents64 getdents
+#endif
 #endif
 
 #ifdef __cplusplus

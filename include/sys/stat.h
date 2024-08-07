@@ -154,10 +154,12 @@ int statx(int, const char *__restrict, int, unsigned, struct statx *__restrict);
 #endif
 
 #if defined(_LARGEFILE64_SOURCE)
+#if 0
 #define stat64 stat
 #define fstat64 fstat
 #define lstat64 lstat
 #define fstatat64 fstatat
+#endif
 #define blkcnt64_t blkcnt_t
 #define fsblkcnt64_t fsblkcnt_t
 #define fsfilcnt64_t fsfilcnt_t

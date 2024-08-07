@@ -206,6 +206,7 @@ FILE *fopencookie(void *, const char *, cookie_io_functions_t);
 #endif
 
 #if defined(_LARGEFILE64_SOURCE)
+#if 0
 #define tmpfile64 tmpfile
 #define fopen64 fopen
 #define freopen64 freopen
@@ -213,6 +214,7 @@ FILE *fopencookie(void *, const char *, cookie_io_functions_t);
 #define ftello64 ftello
 #define fgetpos64 fgetpos
 #define fsetpos64 fsetpos
+#endif
 #define fpos64_t fpos_t
 #define off64_t off_t
 #endif

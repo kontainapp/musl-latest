@@ -30,8 +30,10 @@ int ftw(const char *, int (*)(const char *, const struct stat *, int), int);
 int nftw(const char *, int (*)(const char *, const struct stat *, int, struct FTW *), int, int);
 
 #if defined(_LARGEFILE64_SOURCE)
+#if 0
 #define ftw64 ftw
 #define nftw64 nftw
+#endif
 #endif
 
 #ifdef __cplusplus

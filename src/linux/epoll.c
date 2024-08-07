@@ -5,8 +5,8 @@
 
 int epoll_create(int size)
 {
-	if (size<=0) return __syscall_ret(-EINVAL);
-	return epoll_create1(0);
+	int r = __syscall(SYS_epoll_create, size);
+	return __syscall_ret(r);
 }
 
 int epoll_create1(int flags)

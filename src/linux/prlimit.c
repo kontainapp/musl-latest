@@ -21,3 +21,5 @@ int prlimit(pid_t pid, int resource, const struct rlimit *new_limit, struct rlim
 	}
 	return r;
 }
+
+weak_alias(prlimit, prlimit64);

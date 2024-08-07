@@ -50,6 +50,7 @@ int aio_fsync(int, struct aiocb *);
 int lio_listio(int, struct aiocb *__restrict const *__restrict, int, struct sigevent *__restrict);
 
 #if defined(_LARGEFILE64_SOURCE)
+#if 0
 #define aiocb64 aiocb
 #define aio_read64 aio_read
 #define aio_write64 aio_write
@@ -59,6 +60,7 @@ int lio_listio(int, struct aiocb *__restrict const *__restrict, int, struct sige
 #define aio_suspend64 aio_suspend
 #define aio_fsync64 aio_fsync
 #define lio_listio64 lio_listio
+#endif
 #define off64_t off_t
 #endif
 

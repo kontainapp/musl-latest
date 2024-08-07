@@ -19,8 +19,10 @@ int statfs (const char *, struct statfs *);
 int fstatfs (int, struct statfs *);
 
 #if defined(_LARGEFILE64_SOURCE)
+#if 0
 #define statfs64 statfs
 #define fstatfs64 fstatfs
+#endif
 #define fsblkcnt64_t fsblkcnt_t
 #define fsfilcnt64_t fsfilcnt_t
 #endif

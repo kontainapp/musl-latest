@@ -198,6 +198,7 @@ ssize_t tee(int, int, size_t, unsigned);
 #define F_GETLK64 F_GETLK
 #define F_SETLK64 F_SETLK
 #define F_SETLKW64 F_SETLKW
+#if 0
 #define flock64 flock
 #define open64 open
 #define openat64 openat
@@ -205,9 +206,12 @@ ssize_t tee(int, int, size_t, unsigned);
 #define lockf64 lockf
 #define posix_fadvise64 posix_fadvise
 #define posix_fallocate64 posix_fallocate
+#endif
 #define off64_t off_t
 #if defined(_GNU_SOURCE)
+#if 0
 #define fallocate64 fallocate
+#endif
 #endif
 #endif
 

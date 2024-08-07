@@ -152,3 +152,4 @@ int __fstatat(int fd, const char *restrict path, struct stat *restrict st, int f
 }
 
 weak_alias(__fstatat, fstatat);
+weak_alias(fstatat, fstatat64);

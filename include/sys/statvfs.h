@@ -44,8 +44,10 @@ int fstatvfs (int, struct statvfs *);
 #define ST_RELATIME    4096
 
 #if defined(_LARGEFILE64_SOURCE)
+#if 0
 #define statvfs64 statvfs
 #define fstatvfs64 fstatvfs
+#endif
 #define fsblkcnt64_t fsblkcnt_t
 #define fsfilcnt64_t fsfilcnt_t
 #endif

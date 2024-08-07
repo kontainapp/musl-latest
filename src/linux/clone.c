@@ -28,11 +28,13 @@ int clone(int (*func)(void *), void *stack, int flags, void *arg, ...)
 	pid_t *ptid = 0, *ctid = 0;
 	void  *tls = 0;
 
+#if 0
 	/* Flags that produce an invalid thread/TLS state are disallowed. */
 	int badflags = CLONE_THREAD | CLONE_SETTLS | CLONE_CHILD_CLEARTID;
 
 	if ((flags & badflags) || !stack)
 		return __syscall_ret(-EINVAL);
+#endif
 
 	va_start(ap, arg);
 	if (flags & (CLONE_PIDFD | CLONE_PARENT_SETTID | CLONE_CHILD_SETTID))

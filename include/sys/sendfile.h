@@ -11,7 +11,9 @@ extern "C" {
 ssize_t sendfile(int, int, off_t *, size_t);
 
 #if defined(_LARGEFILE64_SOURCE)
+#if 0
 #define sendfile64 sendfile
+#endif
 #define off64_t off_t
 #endif
 

@@ -410,7 +410,7 @@ tryflag CFLAGS_MEMOPS -fno-tree-loop-distribute-patterns
 #
 # Enable debugging if requessted.
 #
-test "$debug" = yes && CFLAGS_AUTO=-g
+test "$debug" = yes && CFLAGS_AUTO=-ggdb3
 
 #
 # Preprocess asm files to add extra debugging information if debug is
@@ -448,7 +448,7 @@ esac
 
 if test "$optimize" = no ; then :
 else
-tryflag CFLAGS_AUTO -O2
+tryflag CFLAGS_AUTO -Os
 tryflag CFLAGS_AUTO -fno-align-jumps
 tryflag CFLAGS_AUTO -fno-align-functions
 tryflag CFLAGS_AUTO -fno-align-loops

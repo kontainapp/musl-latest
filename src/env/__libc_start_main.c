@@ -7,6 +7,8 @@
 #include "atomic.h"
 #include "libc.h"
 
+void *__libc_stack_end;
+
 static void dummy(void) {}
 weak_alias(dummy, _init);
 
@@ -73,6 +75,9 @@ int __libc_start_main(int (*main)(int,char **,char **), int argc, char **argv,
 	void (*init_dummy)(), void(*fini_dummy)(), void(*ldso_dummy)())
 {
 	char **envp = argv+argc+1;
+
+	/* Initialize the stack end variable.  */
+	__libc_stack_end = __builtin_frame_address (0);
 
 	/* External linkage, and explicit noinline attribute if available,
 	 * are used to prevent the stack frame used during init from
